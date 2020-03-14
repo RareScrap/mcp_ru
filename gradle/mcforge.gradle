@@ -1,0 +1,58 @@
+apply plugin: 'forge'
+minecraft {
+    version = "1.7.10-10.13.4.1614-1.7.10"
+    runDir = "eclipse"
+}
+
+processResources {
+    // this will ensure that this task is redone when the versions change.
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+    // replace stuff in mcmod.info, nothing else
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+
+        // replace version and mcversion
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+
+    // copy everything else, thats not the mcmod.info
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}
+
+// Собираем бинарник мода без обфускации. Рабочий вариант, в отличие от оф. доков из ForgeGradle
+task deobfJar(type: Jar) {
+    classifier "dev"
+    from sourceSets.main.output
+}
+
+// Формирует jar'ник с доками
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+// Формирует jar'ник с исходниками
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+// Чтоб idea смогла запаковать ресурсы в джарник
+idea { module { inheritOutputDirs = true } }
+// Поддержка руских букв в доках
+javadoc { options.encoding = 'UTF-8' }
+// Устраняет ошибки и предупреждения компиляции из-за русских комментов
+tasks.withType(JavaCompile) { options.encoding = 'UTF-8' }
+
+task safeClean(type: Delete, group: "build", description: "The same as the stadart \"Clean\" task, but doesn't delete the Minecraft binary and other specified files") {
+    ext.exclude = Arrays.asList("dirtyArtifacts");
+    doLast {
+        file('build').eachFile() { File file ->
+            if (!exclude.contains(file.name)) delete files(file)
+        }
+    }
+}

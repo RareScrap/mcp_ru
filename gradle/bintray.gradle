@@ -1,0 +1,43 @@
+// Подготавливает maven-публикацию, которая будет использоваться в bintray
+// Именно тут определяются артефакты для публикации
+apply plugin: 'maven-publish'
+publishing {
+    publications {
+        "$project.name"(MavenPublication) {
+            afterEvaluate { // Создаем публикацию только после настройки проекта
+                //from components.java // Артефакты по умолчанию. Отлючаем их, т.к. нам не нужен обфусцированный jar'ник
+                groupId group
+                artifactId archivesBaseName
+                version version
+                artifact deobfJar
+                artifact sourcesJar
+                artifact javadocJar
+            }
+        }
+    }
+}
+
+// Публикация либы в bintray/jcenter
+apply plugin: 'com.jfrog.bintray'
+bintray {
+    user = 'rarescrap'
+    key = System.getenv('BINTRAY_KEY')
+    publications = ["$project.name"]
+//    dryRun = true // Для тестов
+    pkg {
+        repo = 'minecraft'
+        name = 'weight-api'
+        licenses = ['GPL-3.0']
+        vcsUrl = 'https://github.com/RareScrap/WeightAPI.git'
+        version {
+            // TODO: По непонятным причинам я не могу таким способом подцеплять версию сабпроджектов.
+            // Не знаю поему, но case2 вообще не втупляет в эту запись.
+            // Он просто ставит 0.4.0
+            // afterEvaluate {
+                name = "0.5.0_1.7.10" // Едиственный способэто завести - писать версию вручную
+                // name = "${project.version}_1.7.10" // TODO: А это то, как должно быть, по идее
+                released = new Date()
+            //}
+        }
+    }
+}
