@@ -1884,3 +1884,10 @@ p_i46373_1_,eulaFile,1
 p_i46400_1_,workDir,2
 p_i46400_2_,proxy,2
 p_i1574_1_,test,0
+p_102007_1_,slotId,2
+p_102007_2_,itemstack,2
+p_102007_3_,side,2
+p_102008_1_,slotId,2
+p_102008_2_,itemstack,2
+p_102008_3_,side,2
+p_94128_1_,side,2

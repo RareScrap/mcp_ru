@@ -1,9 +1,9 @@
 searge,name,side,desc
-func_100011_g,getIsPotionDurationMax,0, Это русский джавадок и ниипет
-func_100012_b,setPotionDurationMax,0,Toggle the isPotionDurationMax field.
-func_100015_a,isKeyDown,0,Returns whether the specified key binding is currently being pressed.
-func_102007_a,canInsertItem,2,"Returns true if automation can insert the given item in the given slot from the given side. Args: Slot, item, side"
-func_102008_b,canExtractItem,2,"Returns true if automation can extract the given item in the given slot from the given side. Args: Slot, item, side"
+func_100011_g,getIsPotionDurationMax,0,Возвращает true, если эффект зелья длится бесконечно.
+func_100012_b,setPotionDurationMax,0, Устанавливает бесконечную длительность зелья.
+func_100015_a,isKeyDown,0, Возвращает true, если указанный бинд клавиш нажат в настоящее время.
+func_102007_a,canInsertItem,2,"Возвращает true, если возможно автоматически вставить указанный предмет в указанный слот с указанной стороны.\n@param slotId номер слота.\n@param itemstack стак с предметом, который пытаются автоматически поместить в слот.\n@param side сторона блока, с которой находится слот (TODO: стороны)"
+func_102008_b,canExtractItem,2,"Возвращает true, если возможно автоматически извлеч указанный предмет из указанного слота с указанной стороны.\n@param slotId номер слота.\n@param itemstack стак с предметом, который пытаются автоматически извлеч из слота.\n@param side сторона блока, с которой находится слот (TODO: стороны)"
 func_104002_bU,isNoDespawnRequired,2,
 func_104055_i,setForceGamemode,1,
 func_104056_am,getForceGamemode,2,
@@ -4656,7 +4656,7 @@ func_94103_c,explodeCart,2,Makes the minecart explode.
 func_94105_c,ignite,2,Ignites this TNT cart.
 func_94107_f,setMinecartPowered,2,
 func_94108_c,isMinecartPowered,2,
-func_94128_d,getSlotsForFace,2,param side
+func_94128_d,getSlotsForFace,2,"Возвращает id слотов, которые расположены на указанной стороне.\n@param side сторона.\n@return id слотов, которые расположены на указанной стороне"
 func_94140_a,registerDestroyBlockIcons,0,
 func_94143_a,updateIcons,0,
 func_94148_a,renderItemOverlayIntoGUI,0,
