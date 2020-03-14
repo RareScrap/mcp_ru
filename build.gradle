@@ -25,3 +25,30 @@ install {
         pom.artifactId = "mcp_"+project.channel
     }
 }
+
+// Для возможности проверять маппинги прямо тут
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+        maven {
+            name = "sonatype"
+            url = "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+    }
+}
+repositories { mavenLocal() }
+apply plugin: 'forge'
+minecraft {
+    version = "1.7.10-10.13.4.1614-1.7.10"
+    mappings = "somerandomname_custom"
+}
+
+// Чтобы перезагружать маппинги через setupDecompWorkspace
+setupDecompWorkspace.dependsOn(tasks.install)
