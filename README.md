@@ -13,7 +13,7 @@ repositories { TODO }
 ```gradle
 minecraft {
     ...
-    mappings = "mcp_ru_snapshot_custom"
+    mappings = "ru_snapshot_custom"
 }
 ```
 3. Выполните `gradlew setupDecompWorkspace`
