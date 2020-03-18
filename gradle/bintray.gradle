@@ -9,9 +9,7 @@ publishing {
                 groupId group
                 artifactId archivesBaseName
                 version version
-                artifact deobfJar
-                artifact sourcesJar
-                artifact javadocJar
+                artifact jar
             }
         }
     }
@@ -24,17 +22,18 @@ bintray {
     key = System.getenv('BINTRAY_KEY')
     publications = ["$project.name"]
 //    dryRun = true // Для тестов
+    override = true
     pkg {
         repo = 'minecraft'
-        name = 'weight-api'
+        name = 'mcp_ru'
         licenses = ['GPL-3.0']
-        vcsUrl = 'https://github.com/RareScrap/WeightAPI.git'
+        vcsUrl = 'https://github.com/RareScrap/mcp_ru.git'
         version {
             // TODO: По непонятным причинам я не могу таким способом подцеплять версию сабпроджектов.
             // Не знаю поему, но case2 вообще не втупляет в эту запись.
             // Он просто ставит 0.4.0
             // afterEvaluate {
-                name = "0.5.0_1.7.10" // Едиственный способэто завести - писать версию вручную
+                name = "snapshot" // Едиственный способэто завести - писать версию вручную
                 // name = "${project.version}_1.7.10" // TODO: А это то, как должно быть, по идее
                 released = new Date()
             //}

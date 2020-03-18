@@ -7,7 +7,11 @@
 ## Установка:
 1. Добавьте репозиторий проекта в ваш `build.gradle` (убедитесь что вы НЕ внутри блока `buildscript{}`):
 ```gradle
-repositories { TODO }
+repositories {
+    maven {
+        url = https://dl.bintray.com/rarescrap/minecraft
+    }
+}
 ```
 2. Укажите вариант маппингов для использования
 ```gradle

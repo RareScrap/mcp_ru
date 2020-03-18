@@ -26,9 +26,12 @@ install {
     }
 }
 
+apply from: "$rootDir/gradle/bintray.gradle"
+
 // Для возможности проверять маппинги прямо тут
 buildscript {
     repositories {
+        jcenter()
         mavenCentral()
         maven {
             name = "forge"
@@ -41,6 +44,7 @@ buildscript {
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.1' // 1.8.4 не юзается, т.к. он не работает нифига
     }
 }
 repositories { mavenLocal() }
