@@ -3,11 +3,11 @@ apply plugin: "maven"
 
 // edit this area only.
 // the build.gradle would have the patttern   minecraft { mappings = "channel_dlVersion" }
-ext.channel = "somerandomname" // Без капса
+ext.channel = "ru_snapshot" // Без капса
 ext.dlVersion = "custom"
 ext.mcVersion = "1.7.10" // the targetted MC version
 
-group = "de.oceanlabs.mcp"
+group = "de.oceanlabs.mcp" // Для установки маппингов в нужную директорию, из которой ее сможет подцеить ForgeGradle
 version = dlVersion + "-" + mcVersion
 archivesBaseName = "mcp_"+ext.channel
 
@@ -47,7 +47,7 @@ repositories { mavenLocal() }
 apply plugin: 'forge'
 minecraft {
     version = "1.7.10-10.13.4.1614-1.7.10"
-    mappings = "somerandomname_custom"
+    mappings = "ru_snapshot_custom"
 }
 
 // Чтобы перезагружать маппинги через setupDecompWorkspace
