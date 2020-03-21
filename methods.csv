@@ -368,7 +368,7 @@ func_145775_I,doBlockCollisions,2,
 func_145776_H,getSwimSound,2,
 func_145777_O,getSplashSound,2,
 func_145778_a,dropItemWithOffset,2,
-func_145779_a,dropItem,2,
+func_145779_a,dropItem,2,"Выбрасывает указанный предмет прямо под собой в мир, в котором находится ентити.\n@param itemIn предмет, который нужно выбросить в мир.\n@param size количество выбрасываемых предметов.\n@return Возвращает entityItem, которую оставил после себя entity."
 func_145780_a,playStepSound,2,
 func_145782_y,getEntityId,2,
 func_145797_a,setOwner,2,
