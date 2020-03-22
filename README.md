@@ -9,7 +9,7 @@
 ```gradle
 repositories {
     maven {
-        url = https://dl.bintray.com/rarescrap/minecraft
+        url = "https://dl.bintray.com/rarescrap/minecraft"
     }
 }
 ```
