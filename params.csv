@@ -1891,3 +1891,10 @@ p_102008_1_,slotId,2
 p_102008_2_,itemstack,2
 p_102008_3_,side,2
 p_94128_1_,side,2
+p_77615_1_,itemstack,0
+p_77615_2_,world,0
+p_77615_3_,entityplayer,0
+p_77615_4_,itemInUseCount,0
+p_77654_1_,stack,0
+p_77654_2_,world,0
+p_77654_3_,entity,0
