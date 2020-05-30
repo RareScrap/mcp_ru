@@ -1497,6 +1497,16 @@ p_77621_1_,worldIn,2
 p_77621_2_,player,2
 p_77621_3_,useLiquids,2
 p_77644_1_,stack,2
+p_77648_1_,itemstack,2
+p_77648_2_,entityPlayer,2
+p_77648_3_,world,2
+p_77648_4_,x,2
+p_77648_5_,y,2
+p_77648_6_,z,2
+p_77648_7_,side,2
+p_77648_8_,hitX,2
+p_77648_9_,hitY,2
+p_77648_10_,hitZ,2
 p_77659_1_,itemStackIn,2
 p_77659_2_,worldIn,2
 p_77659_3_,player,2
