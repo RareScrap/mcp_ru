@@ -1501,6 +1501,10 @@ p_77132_1_,version,2
 p_77621_1_,worldIn,2
 p_77621_2_,player,2
 p_77621_3_,useLiquids,2
+p_77624_1_,itemStack,0
+p_77624_2_,entityPlayer,0
+p_77624_3_,lines,0
+p_77624_4_,isAdvanced,0
 p_77644_1_,stack,2
 p_77648_1_,itemstack,2
 p_77648_2_,entityPlayer,2
